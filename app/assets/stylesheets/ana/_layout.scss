@@ -1,0 +1,300 @@
+/**
+ * Site header
+ */
+.site-header {
+  border-top: 5px solid $grey-color-dark;
+  border-bottom: 1px solid $grey-color-light;
+  min-height: 56px;
+
+  // Positioning context for the mobile navigation icon
+  position: relative;
+
+  background: url(/assets/images/nav-bg.gif) $background-color;
+  border-bottom: 4px solid #434343;
+
+  -webkit-box-shadow: 0 1px 3px $shadow-color;
+     -moz-box-shadow: 0 1px 3px $shadow-color;
+       -o-box-shadow: 0 1px 3px $shadow-color;
+          box-shadow: 0 1px 3px $shadow-color;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 56px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+  color: $brand-color;
+}
+
+.site-nav {
+  float: right;
+  line-height: 52px;
+  text-shadow: 0 1px 0 $black_20;
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    color: $text-color;
+    
+    line-height: 50px;
+    font-weight: normal;
+    display: inline;
+
+    // Gaps between nav items, but not on the last one
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+    
+    a {
+      //line-height: 14px;
+      line-height: $small-font-size;
+      color: white;
+      border: 1px solid $brand-border-color;
+
+      background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $brand-color), color-stop(100%, $brand-color-2));
+      background: -webkit-linear-gradient($brand-color, $brand-color-2);
+      background:    -moz-linear-gradient($brand-color, $brand-color-2);
+      background:     -ms-linear-gradient($brand-color, $brand-color-2);
+      background:      -o-linear-gradient($brand-color, $brand-color-2);
+      background:         linear-gradient($brand-color, $brand-color-2);
+
+      -webkit-border-radius: 2px;
+       -khtml-border-radius: 2px;
+         -moz-border-radius: 2px;
+          -ms-border-radius: 2px;
+           -o-border-radius: 2px;
+              border-radius: 2px;
+      
+      -webkit-box-shadow: inset 0 1px 0 $white_30, 0 3px 7px $black_70;
+           -o-box-shadow: inset 0 1px 0 $white_30, 0 3px 7px $black_70;
+         -moz-box-shadow: inset 0 1px 0 $white_30, 0 3px 7px $black_70;
+              box-shadow: inset 0 1px 0 $white_30, 0 3px 7px $black_70;
+      
+      background-color: $brand-color;
+      padding: 10px 12px;
+      margin-top: 6px;
+      font-size: 14px;
+      display: inline-block;
+      text-align: center;
+
+      &:hover {
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $brand-color-1), color-stop(100%, $brand-color-3));
+        background: -webkit-linear-gradient($brand-color-1, $brand-color-3);
+        background:    -moz-linear-gradient($brand-color-1, $brand-color-3);
+        background:     -ms-linear-gradient($brand-color-1, $brand-color-3);
+        background:      -o-linear-gradient($brand-color-1, $brand-color-3);
+        background:         linear-gradient($brand-color-1, $brand-color-3);
+        
+        -webkit-box-shadow: inset 0 1px 1px $black_20, 0 1px 0 $black_0;
+           -moz-box-shadow: inset 0 1px 1px $black_20, 0 1px 0 $black_0;
+             -o-box-shadow: inset 0 1px 1px $black_20, 0 1px 0 $black_0;
+                box-shadow: inset 0 1px 1px $black_20, 0 1px 0 $black_0;
+
+        background-color: $brand-color-2;
+        border: 1px solid $brand-color-3;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include media-query($on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-dark;
+    border-radius: 5px;
+    text-align: right;
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg path {
+        fill: $brand-color;
+      }
+    }
+
+    .trigger {
+      clear: both;
+      display: none;
+    }
+
+    &:hover .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-left: 20px;
+    }
+  }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+  background: url(/assets/images/nav-bg.gif) $background-color;
+  border-top: 1px solid #424242;
+  padding: $spacing-unit 0;
+
+  .footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing-unit / 2;
+  }
+
+  .contact-list,
+  .social-media-list {
+    text-align: center;
+    list-style: none;
+    margin-left: 0;
+  }
+
+  .footer-col-wrapper {
+    font-size: 15px;
+    color: $grey-color;
+    margin-left: -$spacing-unit / 2;
+    @extend %clearfix;
+  }
+
+  .footer-col {
+    float: left;
+    margin-bottom: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
+
+  .footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+    width:         calc(35% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+    width:         calc(45% - (#{$spacing-unit} / 2));
+  }
+
+  @include media-query($on-laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+      width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+      width:         calc(50% - (#{$spacing-unit} / 2));
+    }
+
+    .footer-col-3 {
+      width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+      width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+  }
+
+  @include media-query($on-palm) {
+    .footer-col {
+      float: none;
+      width: -webkit-calc(100% - (#{$spacing-unit} / 2));
+      width:         calc(100% - (#{$spacing-unit} / 2));
+    }
+  }
+}
+
+
+/**
+ * Page content
+ */
+.page-content {
+  padding: $spacing-unit 0;
+  //background-color: $background-color;
+  background-attachment: fixed !important;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2a2a29), color-stop(100%, #1c1c1c));
+  background: -webkit-linear-gradient(#2a2a29, #1c1c1c);
+  background: -moz-linear-gradient(#2a2a29, #1c1c1c);
+  background: -o-linear-gradient(#2a2a29, #1c1c1c);
+  background: -ms-linear-gradient(#2a2a29, #1c1c1c);
+  background: linear-gradient(#2a2a29, #1c1c1c);
+
+  .page-heading {
+    font-size: 20px;
+  }
+
+  .post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+      margin-bottom: $spacing-unit;
+    }
+  }
+
+  .post-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+  }
+
+  .post-link {
+    display: block;
+    font-size: 24px;
+  }
+}
+
+/**
+ * Posts
+ */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @include media-query($on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-image {
+  figcaption {
+    text-align: right;
+    font-style: italic;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+
+  h2 { font-size: 32px; }
+  h3 { font-size: 26px; }
+  h4 { font-size: 20px; }
+
+  h2, h3, h4 {
+    color: #b6b6b6;
+  }
+
+  @include media-query($on-laptop) {
+    h2 { font-size: 28px; }
+    h3 { font-size: 22px; }
+    h4 { font-size: 18px; }
+  }
+}

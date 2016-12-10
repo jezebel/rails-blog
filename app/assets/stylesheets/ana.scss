@@ -1,0 +1,68 @@
+// Define defaults for each variable.
+
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     30px !default;
+
+$text-color:         #d7cfbe !default;
+$header-color:       #b6b6b6;
+$background-color:   #353535 !default;
+$post-background:    rgba(96, 96, 96, 0.7);
+
+$brand-color:       #6f3abd !default;
+$brand-color-light: lighten($brand-color, 10%);
+$brand-color-0:     lighten($brand-color, 5%);
+$brand-color-1:     darken($brand-color, 6%);
+$brand-color-2:     darken($brand-color, 13%);
+$brand-color-3:     darken($brand-color, 20%);
+
+$brand-border-color: darken($brand-color, 18%);
+
+$shadow-color:     rgba(0, 0, 0, 0.25);
+
+$white_30:         rgba(255, 255, 255, 0.3);
+
+$black_70:         rgba(0, 0, 0, 0.7);
+$black_20:         rgba(0, 0, 0, 0.2);
+$black_0:          rgba(0, 0, 0, 0);
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+// Width of the content area
+$content-width:    800px !default;
+
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Import partials.
+@import
+  "ana/base",
+  "ana/layout",
+  "ana/syntax-highlighting"
+;
+
+.post, .home {
+  padding: 2.5%;
+  border: 1px solid rgba(51,51,51,0.1);
+  border-radius: 10px;
+  background-color: $post-background;
+}
