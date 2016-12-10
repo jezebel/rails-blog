@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts, only: [:index, :show]
+  resources :pages, only: [:index, :show]
+  resources :notes, only: [:index, :show]
+
+  get '/', to: 'posts#index'
 end
