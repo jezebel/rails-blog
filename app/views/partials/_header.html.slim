@@ -1,0 +1,12 @@
+header.site-header role="banner"
+  .wrapper
+    link.site-title href="/"
+      = site_config.title
+    nav.site-nav
+      span.menu-icon
+        = image_tag "icons/icon-menu.svg"
+      .trigger
+        - Page.all.each do |page|
+          - if page.label
+            .page-link
+              = link_to page.label, page_path(page)

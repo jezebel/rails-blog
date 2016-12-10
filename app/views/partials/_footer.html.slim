@@ -1,0 +1,23 @@
+footer.site-footer
+  .wrapper
+    .social-media-list
+      - if site_config.email
+        = link_to "mailto:#{site_config.email}" do
+          = content_tag :span, class: "icon icon--mail" do
+            = image_tag "icons/icon-mail.svg"
+      - if site_config.github
+        = link_to "https://github.com/#{site_config.github}" do
+          = content_tag :span, class: "icon icon--github" do
+            = image_tag "icons/icon-github.svg"
+      - if site_config.twitter
+        = link_to "https://twitter.com/#{site_config.twitter}" do
+          = content_tag :span, class: "icon icon--twitter" do
+            = image_tag "icons/icon-twitter.svg"
+      - if site_config.lastfm
+        = link_to "http://www.last.fm/user/#{site_config.lastfm}" do
+          = content_tag :span, class: "icon icon--lastfm" do
+            = image_tag "icons/icon-lastfm.svg"
+      = link_to "/feed.xml" do
+        = content_tag :span, class: "icon icon--rss" do
+          = image_tag "icons/icon-rss.svg"
+  
