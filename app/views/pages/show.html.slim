@@ -1,0 +1,15 @@
+article.post
+  header.post-header
+    h1.post-title
+      = @page.title
+      
+    - if @page.image
+      .post-image
+        .image-wrapper
+          = image_tag @page.image
+      - if @page.image_text
+        .image-text
+          = @page.image_text
+  
+  .post-content
+    = @post.content
