@@ -1,0 +1,12 @@
+.home
+  h1.page-heading Posts
+  
+  /extra content..
+  
+  ul.post-list
+    - @posts.each do |post|
+      li
+        span.post-meta
+          = "#{post.published_at}" # "%b %-d, %Y"
+        h2.post-link
+          = link_to post.title, post_path(post)
