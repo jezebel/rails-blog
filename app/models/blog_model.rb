@@ -21,6 +21,10 @@ class BlogModel
     end.compact
   end
 
+  def self.find slug
+    all.detect{|x| x.slug == slug}
+  end
+
   def initialize filename
     @slug     = File.basename(filename).gsub(/.md/, '')
     @markdown = File.read(filename)

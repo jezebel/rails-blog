@@ -3,9 +3,11 @@ class Page < BlogModel
     :label, # label for nav
   ]
 
+  DEFAULT_DIR = 'pages'
+
   attr_accessor *METADATA
 
-  def self.all dir = 'pages'
+  def self.all dir = DEFAULT_DIR
     super.sort_by{|page| page.slug}.reverse
   end
 
