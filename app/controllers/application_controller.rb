@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def site_config
-    @site_config ||= Rails.application.config.site_config
+  def site
+    @site ||= Site.new
   end
-  helper_method :site_config
+  helper_method :site
 end
