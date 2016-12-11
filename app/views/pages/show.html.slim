@@ -7,9 +7,9 @@ article.post
       .post-image
         .image-wrapper
           = image_tag @page.image
-      - if @page.image_text
+      - if @page.caption
         .image-text
-          = @page.image_text
+          = @page.caption
   
   .post-content
-    = @page.content
+    = @page.html

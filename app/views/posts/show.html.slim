@@ -13,9 +13,9 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
       .post-image
         .image-wrapper
           = image_tag @post.image
-      - if @post.image_text
+      - if @post.caption
         .image-text
-          = @post.image_text
+          = @post.caption
   
   .post-content itemprop="articleBody"
     = @post.html
