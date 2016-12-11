@@ -1,0 +1,10 @@
+.social-media-list
+  - site.social_media.each do |service|
+    - url = site.send(service)
+    - if url
+      = link_to url do
+        = content_tag :span, class: "icon icon--#{service}" do
+          = image_tag "icons/icon-#{service}.svg"
+  = link_to "/feed.xml" do
+    = content_tag :span, class: "icon icon--rss" do
+      = image_tag "icons/icon-rss.svg"
