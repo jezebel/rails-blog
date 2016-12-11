@@ -4,7 +4,7 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
       = @post.title
     p.post-meta
       time datetime="#{@post.published_at}" itemprop="datePublished"
-        = @page.published_at # "%b %-d, %Y"
+        = @post.published_at # "%b %-d, %Y"
       /span itemprop="author" itemscope="" itemtype="http://schema.org/Person"
       /  span itemprop="name"
       /    = site_config.author
@@ -18,4 +18,4 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
           = @post.image_text
   
   .post-content itemprop="articleBody"
-    = @post.content
+    = @post.html
