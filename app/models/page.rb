@@ -14,8 +14,4 @@ class Page < BlogModel
   def label
     @label ||= title
   end
-
-  private
-
-
 end
