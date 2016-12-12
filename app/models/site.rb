@@ -1,5 +1,5 @@
 class Site
-  attr_accessor :pages, :posts, :tags
+  attr_accessor :pages, :posts, :tags, :title, :author, :description
 
   SOCIAL_MEDIA = [
     :mail, :github, :twitter, :lastfm
@@ -12,6 +12,10 @@ class Site
 
     @config['sources'].each{|x| process_source x}
     @config['social'].each{|k, v| process_social k, v}
+
+    @title       = @config['title']
+    @author      = @config['author']
+    @description = @config['description']
   end
 
   def social_media
