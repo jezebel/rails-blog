@@ -4,7 +4,7 @@
     - if url
       = link_to url do
         = content_tag :span, class: "icon icon--#{service}" do
-          = image_tag "icons/icon-#{service}.svg"
+          = svg_icon_path service
   = link_to "/feed.xml" do
     = content_tag :span, class: "icon icon--rss" do
-      = image_tag "icons/icon-rss.svg"
+      = svg_icon_path "rss"
