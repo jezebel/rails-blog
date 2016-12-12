@@ -29,11 +29,11 @@ class BlogModel
   end
 
   def initialize filename, site: nil
-    @asset_path = File.join('/', File.dirname(filename))
-    # @asset_path = Rails.root.join(File.dirname(filename))
-    @slug       = File.basename @asset_path
-    @markdown   = File.read filename
-    @site       = site || Rails.application.config.site_config
+    @img_path  = File.join('/', File.dirname(filename))
+    # @img_path = Rails.root.join(File.dirname(filename))
+    @slug      = File.basename @img_path
+    @markdown  = File.read filename
+    @site      = site || Rails.application.config.site_config
 
     if @markdown =~ /^(-{3,}\s*\n.*?\n?)^(-{3,}\s*$\n?)/m
       @markdown = @markdown[($1.size + $2.size)..-1]
@@ -58,7 +58,7 @@ class BlogModel
   end
 
   def html parser = @site.parser
-    parser.renderer.asset_path = @asset_path
+    parser.renderer.img_path = @img_path
     parser.render(markdown).html_safe
   end
 
