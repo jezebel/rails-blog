@@ -1,6 +1,7 @@
 class Post < BlogModel
   METADATA += [
     :date, # datetime
+    :tags,
   ]
 
   DEFAULT_DIR = 'posts'
@@ -8,14 +9,14 @@ class Post < BlogModel
   attr_accessor *METADATA
 
   def self.all dir = DEFAULT_DIR
-    super.sort_by{|post| [post.date, post.slug]}.reverse
+    super.sort{|post| post.date}.reverse
   end
 
   def date_to_s
-    date.strftime('%F')
+    date.try!(:strftime, '%F')
   end
 
   def time_to_s
-    date.strftime('%T') # %H%M.%S
+    date.try!(:strftime, '%T') # %H%M.%S
   end
 end
