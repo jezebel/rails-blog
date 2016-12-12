@@ -7,6 +7,6 @@
     - @posts.each do |post|
       li
         span.post-meta
-          = "#{post.published_at}" # "%b %-d, %Y"
+          = "#{post.date}" # "%b %-d, %Y"
         h2.post-link
-          = link_to post.title, post_path(post)
+          = link_to post.title, post_path(post.id)
