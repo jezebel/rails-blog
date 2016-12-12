@@ -8,5 +8,10 @@ Bundler.require(*Rails.groups)
 
 module AboutAGirl
   class Application < Rails::Application
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # Faster precompiles
+    config.assets.initialize_on_precompile = false
   end
 end
