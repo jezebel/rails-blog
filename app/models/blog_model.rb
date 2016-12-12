@@ -1,6 +1,5 @@
 class BlogModel
   include ActiveModel
-  include HasMarkdown
 
   METADATA = [
     :title,        # title
@@ -13,14 +12,15 @@ class BlogModel
   ]
 
   attr_accessor *METADATA
+
   attr_accessor :markdown
 
   # /pages/:slug/:slug.md
   # /posts/:year/:month/NN-slug/NN-slug.md
-  def self.all dir
-    Dir.glob("#{dir}/**/**/**/*.md").map do |filename|
+  def self.all dir, site: nil
+    Dir.glob("#{dir}/**/*.md").map do |filename|
       # if invalid, return nil
-      self.new(filename)
+      self.new(filename, site: site)
     end.compact
   end
 
@@ -28,10 +28,12 @@ class BlogModel
     all.detect{|x| x.slug == slug}
   end
 
-  def initialize filename
-    @filename = filename
-    @slug     = File.basename(filename).gsub(/.md/, '')
-    @markdown = File.read(filename)
+  def initialize filename, site: nil
+    @asset_path = File.join('/', File.dirname(filename))
+    # @asset_path = Rails.root.join(File.dirname(filename))
+    @slug       = File.basename @asset_path
+    @markdown   = File.read filename
+    @site       = site || Rails.application.config.site_config
 
     if @markdown =~ /^(-{3,}\s*\n.*?\n?)^(-{3,}\s*$\n?)/m
       @markdown = @markdown[($1.size + $2.size)..-1]
@@ -53,6 +55,11 @@ class BlogModel
 
   def publish!
     @published_at = Time.now
+  end
+
+  def html parser = @site.parser
+    parser.renderer.asset_path = @asset_path
+    parser.render(markdown).html_safe
   end
 
   private

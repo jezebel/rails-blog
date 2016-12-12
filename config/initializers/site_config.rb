@@ -1,1 +1,2 @@
-Rails.application.config.site_config = Site.new
+SiteConfig = Site.new
+Rails.application.config.site_config = SiteConfig

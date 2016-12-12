@@ -7,8 +7,12 @@ class Site
 
   attr_accessor *SOCIAL_MEDIA
 
+  attr_accessor :parser
+
   def initialize
     @config = YAML.load_file(Rails.root.join('config', "config.yml"))
+
+    @parser = Redcarpet::Markdown.new CustomRenderer.new
 
     @config['sources'].each{|x| process_source x}
     @config['social'].each{|k, v| process_social k, v}
@@ -26,7 +30,7 @@ class Site
 
   def process_source source
     klass = source.singularize.titleize.constantize
-    instance_variable_set "@#{source}", klass.send(:all, source)
+    instance_variable_set "@#{source}", klass.send(:all, source, site: self)
   end
 
   def process_social service, username

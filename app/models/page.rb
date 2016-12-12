@@ -7,7 +7,7 @@ class Page < BlogModel
 
   attr_accessor *METADATA
 
-  def self.all dir = DEFAULT_DIR
+  def self.all dir = DEFAULT_DIR, site: nil
     super.sort_by{|page| page.slug}.reverse
   end
 
