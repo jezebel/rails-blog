@@ -3,7 +3,7 @@ layout: page
 label: .mkv
 title: Movies
 permalink: /movies/
-image: /assets/images/film.jpg
+image: film.jpg
 caption: Some of my favourite movies...
 ---
 In some sort of order:

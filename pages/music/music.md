@@ -3,7 +3,7 @@ layout: page
 label: .mp3
 title: Music
 permalink: /music/
-image: /assets/images/music.jpg
+image: music.jpg
 caption:
 ---
 ## Artists
