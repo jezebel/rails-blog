@@ -19,7 +19,11 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'slim'
 gem 'pry-rails'
-gem 'kramdown'
+gem 'better_errors'
+gem 'binding_of_caller'
+# it's faster and supports strikethrough
+# https://www.sitepoint.com/markdown-processing-ruby/
+gem 'redcarpet'
 
 # Use jquery as the JavaScript library
 # gem 'jquery-rails'
