@@ -3,10 +3,13 @@ class BlogModel
   include HasMarkdown
 
   METADATA = [
-    :title,    # title
-    :subtitle, # displays below title
-    :image,    # feature image
-    :caption,  # text below image (optional)
+    :title,        # title
+    :subtitle,     # displays below title
+    :image,        # feature image
+    :caption,      # text below image (optional)
+    :layout,       # override which view to use
+    :permalink,    # in-case can't use slug?
+    :published_at,
   ]
 
   attr_accessor *METADATA
@@ -26,6 +29,7 @@ class BlogModel
   end
 
   def initialize filename
+    @filename = filename
     @slug     = File.basename(filename).gsub(/.md/, '')
     @markdown = File.read(filename)
 
@@ -33,6 +37,10 @@ class BlogModel
       @markdown = @markdown[($1.size + $2.size)..-1]
       set_metadata YAML.load($1) || {}
     end
+  end
+
+  def id
+    slug
   end
 
   def slug
@@ -43,11 +51,15 @@ class BlogModel
     @title ||= @slug.titleize # or do I want blank?
   end
 
+  def publish!
+    @published_at = Time.now
+  end
+
   private
 
   def set_metadata metadata_hash
     metadata_hash.each do |key, value|
-      instance_variable_set("@#{key}", value)
+      send("#{key}=", value)
     end
   end
 end
