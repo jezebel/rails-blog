@@ -3,13 +3,7 @@ article.post
     h1.post-title
       = @page.title
       
-    - if @page.image
-      .post-image
-        .image-wrapper
-          = image_tag @page.image
-      - if @page.caption
-        .image-text
-          = @page.caption
+    = render "partials/featured_image", blog_model: @page
   
   .post-content
     = @page.html

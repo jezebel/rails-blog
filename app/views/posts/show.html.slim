@@ -11,12 +11,7 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
       /    = site_config.author
       
     - if @post.image
-      .post-image
-        .image-wrapper
-          = image_tag @post.image
-      - if @post.caption
-        .image-text
-          = @post.caption
+      = render "partials/featured_image", blog_model: @post
   
   .post-content itemprop="articleBody"
     = @post.html
