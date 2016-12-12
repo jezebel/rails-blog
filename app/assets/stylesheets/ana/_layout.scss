@@ -9,7 +9,7 @@
   // Positioning context for the mobile navigation icon
   position: relative;
 
-  background: url(/assets/images/nav-bg.gif) $background-color;
+  background: image-url("nav-bg.gif") $background-color;
   border-bottom: 4px solid #434343;
 
   -webkit-box-shadow: 0 1px 3px $shadow-color;
@@ -152,7 +152,7 @@
  * Site footer
  */
 .site-footer {
-  background: url(/assets/images/nav-bg.gif) $background-color;
+  background: image-url("nav-bg.gif") $background-color;
   border-top: 1px solid #424242;
   padding: $spacing-unit 0;
 
