@@ -6,8 +6,7 @@ permalink: /movies/
 image: film.jpg
 caption: Some of my favourite movies...
 ---
-In some sort of order:
-
+## In some sort of order:
 - Fight Club
 - Leon
 - V For Vendetta

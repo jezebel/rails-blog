@@ -6,4 +6,4 @@ article.post
     = render "partials/featured_image", blog_model: @page
   
   .post-content
-    = @page.html
+    = @page.html(self)

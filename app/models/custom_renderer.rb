@@ -1,19 +1,16 @@
 class CustomRenderer < Redcarpet::Render::HTML
 
-  include ActionView::Helpers::AssetTagHelper
-  include ActionView::Context
+  # not using the below right now
+  # attr_accessor :img_path
 
-  attr_accessor :asset_path
+  # I feel really stupid but I don't know what Sprockets things
+  # to include, in what order, and what to configure :(
+  # I am FINALLY giving up and just passing "self" from the view
+  # because we know that image_tag works there!
+  attr_accessor :context
 
   def image(link, title, alt_text)
-    content_tag :figure, class: 'post-image' do
-      # image_tag File.join(asset_path, link), alt: alt_text, title: title do
-      image_tag image_path(link), alt: alt_text, title: title do
-        content_tag :figcaption do
-          "-- #{title}"
-        end
-      end
-    end
+    context.send :blog_model_image, link, title, alt_text
   end
 
 end

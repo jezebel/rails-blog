@@ -8,14 +8,11 @@ module ApplicationHelper
     File.read(file_path).html_safe if File.exists?(file_path)
   end
 
-  def blog_model_image blog_model
-    image   = blog_model.image
-    caption = blog_model.caption
-
+  def blog_model_image src, title, alt
     content_tag :figure, class: 'post-image' do
-      image_tag image, alt: caption do
+      image_tag src, alt: alt do
         content_tag :figcaption do
-          "-- #{caption}"
+          "-- #{title}"
         end
       end
     end
