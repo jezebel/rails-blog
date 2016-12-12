@@ -3,8 +3,9 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
     h1.post-title itemprop="name headline"
       = @post.title
     p.post-meta
-      time datetime="#{@post.published_at}" itemprop="datePublished"
-        = @post.published_at # "%b %-d, %Y"
+      time datetime="#{@post.date}" itemprop="datePublished"
+        = @post.date
+        /# "%b %-d, %Y"
       /span itemprop="author" itemscope="" itemtype="http://schema.org/Person"
       /  span itemprop="name"
       /    = site_config.author
