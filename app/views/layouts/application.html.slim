@@ -1,6 +1,6 @@
 doctype html
 
-html lang="#{@site_config.try!(:lang) || 'en'}"
+html lang="#{@site.try!(:lang) || 'en'}"
   
   head
     meta charset="utf-8"
@@ -12,8 +12,8 @@ html lang="#{@site_config.try!(:lang) || 'en'}"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     
-    link rel="canonical" href="#{@site_config.try!(:site_url) || 'https://ana.dj'}"
-    link rel="alternate" type="application/rss+xml" title="#{@site_config.try!(:title)}" href="/feed.xml"
+    link rel="canonical" href="#{@site.try!(:site_url) || 'https://ana.dj'}"
+    link rel="alternate" type="application/rss+xml" title="#{@site.try!(:title)}" href="/feed.xml"
     link rel="shortcut icon" href="/favicon.ico"
   
   body.body
