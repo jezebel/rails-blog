@@ -14,4 +14,4 @@ article.post itemscope="" itemtype="http://schema.org/BlogPosting"
       = render "partials/featured_image", blog_model: @post
   
   .post-content itemprop="articleBody"
-    = @post.html
+    = html_from_markdown @post.markdown

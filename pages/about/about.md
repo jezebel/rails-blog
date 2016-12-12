@@ -10,6 +10,8 @@ This is a work in progress.  Probably always will be.  I plan to use this space
 for my own random notes and journal like posts.  I never seem to have time to
 work on my own things. Why is that??  The colours I've managed to come up with
 so far .. actually look pretty good with Flux at the moment ;).
+
+
 I'll at least push this up because it's better than the mess I left.
 Maybe I can work on this at Rails Camp if I don't get anywhere with the app!
 
