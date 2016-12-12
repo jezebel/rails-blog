@@ -3,7 +3,7 @@ header.site-header role="banner"
     = link_to site.title, "/", class: "site-title"
     nav.site-nav
       span.menu-icon
-        = image_tag "/icons/icon-menu.svg"
+        = svg_icon_path "menu"
       .trigger
         - Page.all.each do |page|
           - if page.label
