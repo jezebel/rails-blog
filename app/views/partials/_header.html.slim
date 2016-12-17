@@ -4,8 +4,8 @@ header.site-header role="banner"
     nav.site-nav
       span.menu-icon
         = svg_icon_path "menu"
-      .trigger
+      ul.trigger
         - Page.all.each do |page|
           - if page.label
-            .page-link
+            li.page-link
               = link_to page.label, page_path(page.id)
