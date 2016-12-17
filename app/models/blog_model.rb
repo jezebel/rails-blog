@@ -1,5 +1,7 @@
+require 'active_model'
+
 class BlogModel
-  include ActiveModel
+  include ActiveModel::Model
 
   METADATA = [
     :title,        # title
