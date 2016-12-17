@@ -19,7 +19,8 @@ class BlogModel
 
   # /pages/:slug/:slug.md
   # /posts/:year/:month/NN-slug/NN-slug.md
-  def self.all dir
+  def self.all dir:, path: nil
+    dir = [dir, path].compact.join('/').presence
     Dir.glob("#{dir}/**/*.md").map do |filename|
       # if invalid, return nil
       self.new filename

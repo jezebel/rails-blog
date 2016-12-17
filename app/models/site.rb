@@ -30,7 +30,7 @@ class Site
 
   def process_source source
     klass = source.singularize.titleize.constantize
-    instance_variable_set "@#{source}", klass.send(:all, source)
+    instance_variable_set "@#{source}", klass.send(:all, dir: source)
   end
 
   def process_social service, username

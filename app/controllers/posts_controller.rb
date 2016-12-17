@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    path = [params[:year], params[:month]].compact.join('/').presence
+    @posts = Post.all path: path
 
     respond_to do |format|
       format.html

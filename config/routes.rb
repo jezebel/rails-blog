@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:index, :show], constraints: { id: /\d{2}-[A-Za-z\-]+/ } do
+    collection do
+      get '/:year', action: :index, year: /\d{4}/, as: :year
+      get '/:year/:month', action: :index, year: /\d{4}/, month: /\d{2}/, as: :year_month
+    end
+  end
 
-  get '/:id', to: 'pages#show', as: 'page'
+  resources :pages, only: [:show], path: ''
 
-  get '/', to: 'posts#index'
+  root to: 'posts#index'
 end

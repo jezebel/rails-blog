@@ -8,7 +8,7 @@ class Post < BlogModel
 
   attr_accessor *METADATA
 
-  def self.all dir = DEFAULT_DIR
+  def self.all dir: DEFAULT_DIR, path: nil
     super.sort_by{|post| [post.date, post.slug]}.reverse
   end
 
