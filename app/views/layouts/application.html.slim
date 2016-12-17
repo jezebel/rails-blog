@@ -19,6 +19,9 @@ html lang="#{@site.try!(:lang) || 'en'}"
   body.body
     = render "partials/header"
     
+    - if content_for? :header_image
+      .header-image= content_for :header_image
+    
     main.page-content aria-label="Content"
       .wrapper
         = yield
