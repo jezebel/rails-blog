@@ -17,10 +17,10 @@ class BlogModel
 
   # /pages/:slug/:slug.md
   # /posts/:year/:month/NN-slug/NN-slug.md
-  def self.all dir, site: nil
+  def self.all dir
     Dir.glob("#{dir}/**/*.md").map do |filename|
       # if invalid, return nil
-      self.new(filename, site: site)
+      self.new filename
     end.compact
   end
 
@@ -28,12 +28,12 @@ class BlogModel
     all.detect{|x| x.slug == slug}
   end
 
-  def initialize filename, site: nil
+  def initialize filename
     @img_path  = File.join('/', File.dirname(filename))
     # @img_path = Rails.root.join(File.dirname(filename))
     @slug      = File.basename @img_path
     @markdown  = File.read filename
-    @site      = site || Rails.application.config.site_config
+    # @site      = Rails.application.config.site_config
 
     if @markdown =~ /^(-{3,}\s*\n.*?\n?)^(-{3,}\s*$\n?)/m
       @markdown = @markdown[($1.size + $2.size)..-1]
