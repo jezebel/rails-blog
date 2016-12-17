@@ -59,7 +59,7 @@ class BlogModel
     @published_at = Time.now
   end
 
-  def html context, parser: Site.parser
+  def html context, parser: Rails.application.config.site_config.parser
     # parser.renderer.img_path = @img_path
     parser.renderer.context = context
     parser.render(markdown).html_safe
