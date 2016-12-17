@@ -5,6 +5,6 @@
       = link_to url do
         = content_tag :span, class: "icon icon--#{service}" do
           = svg_icon_path service
-  = link_to "/feed.xml" do
+  = link_to posts_path(format: :atom) do
     = content_tag :span, class: "icon icon--rss" do
       = svg_icon_path "rss"
