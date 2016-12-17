@@ -13,4 +13,3 @@
 //jquery
 //jquery_ujs
 //turbolinks
-//= require_tree .
