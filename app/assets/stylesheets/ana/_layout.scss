@@ -20,12 +20,25 @@
 
 .site-title {
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
+  
   color: $brand-color;
+  $shadow-color: darken($brand-color, 18%);
+  
+  text-shadow:
+    1px -1px 0  $shadow-color,
+    1px 1px 0   $shadow-color,
+    -1px 1px 0  $shadow-color,
+    -1px -1px 0 $shadow-color,
+    0 -1px 0    $shadow-color,
+    0 1px 0     $shadow-color,
+    1px 0 0     $shadow-color,
+    -1px 0 0    $shadow-color,
+    0 3px rgba(0,0,0,0.4);
 }
 
 .site-nav {
@@ -50,6 +63,7 @@
     }
     
     a {
+      width: 30px;
       //line-height: 14px;
       line-height: $small-font-size;
       color: white;
@@ -123,25 +137,34 @@
         fill: $brand-color;
       }
     }
-
+    
     .trigger {
       clear: both;
       display: none;
+      margin: 0;
+      padding: 5px 5px;
     }
 
     &:hover .trigger {
       display: block;
-      padding-bottom: 5px;
     }
 
     .page-link {
       display: block;
-      padding: 5px 10px;
+      padding: 0;
+      margin: 0;
+      //padding: 2px 4px;
+      line-height: 24px;
+      //margin-right: 5px;
 
       &:not(:last-child) {
-        margin-right: 0;
+        margin: 0;
       }
-      margin-left: 20px;
+      //margin-left: 10px;
+      a {
+        margin: 2px 4px;
+        //padding: 0;
+      }
     }
   }
 }
