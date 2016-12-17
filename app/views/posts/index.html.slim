@@ -1,3 +1,8 @@
+- content_for :header_image do
+  = link_to "http://imgur.com/mIdfcIX", target: '_blank' do
+    = image_tag "http://i.imgur.com/mIdfcIX.jpg",
+      alt_text: 'Vienna 2016', title: 'Vienna 2016'
+
 .home
   h1.page-heading Posts
   
@@ -8,6 +13,5 @@
       li
         span.post-meta
           = "#{post.date_to_s} #{post.time_to_s}"
-        / "%b %-d, %Y"
         h2.post-link
           = link_to post.title, post_path(post.id)
