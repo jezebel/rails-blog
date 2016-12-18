@@ -23,9 +23,5 @@ Bundler.require(*Rails.groups)
 
 module AboutAGirl
   class Application < Rails::Application
-    config.assets.compile = true
-
-    # Faster precompiles
-    config.assets.initialize_on_precompile = false
   end
 end
