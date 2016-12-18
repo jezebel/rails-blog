@@ -5,8 +5,8 @@ site_url: https://ana.dj
 timezone: Australia/Melbourne
 
 sources:
-  - pages
-  - posts
+  pages: pages
+  posts: posts
 
 social:
   mail: mail@ana.dj
